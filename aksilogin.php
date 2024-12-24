@@ -1,16 +1,16 @@
 <?php
 
-include "connection.php";
-
-$e = $_POST['email'];
-$p = $_post['katasandi'];
-$dbh = $koneksi->query("SELECT * FROM users WHERE email = '".$e."' AND password = '".$p."' AND active = 1 ");
-
-if()
-{
-    echo "login berhasil";
+try {
+    $koneksi = new PDO("mysql:localhost=127.0.0.1;dbname=akademik2_pwb", "akademik2_pwb", "fik15368");
+    
+   
+    $koneksi->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+    
+    
+    echo "Koneksi berhasil!";
+} catch (PDOException $e) {
+    
+    echo "Koneksi gagal: " . $e->getMessage();
 }
-else {
-    echo "login gagal";
-}
+
 ?>
